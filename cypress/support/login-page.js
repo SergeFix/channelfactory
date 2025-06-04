@@ -8,6 +8,7 @@ class LoginPage {
     nextButton: () => cy.get('button').contains('Next'),
     validationCodeContainer: () => cy.get('.two-factor-container.active'),
     firstCellCodeContainer: () => cy.get('#c-1'),
+    skipButton: () => cy.get('.modal-open').find('.skip'),
     
     }
 
@@ -33,7 +34,7 @@ class LoginPage {
             });
         });
 
-        cy.get('.modal-open').find('.skip').click();
+        this.locators.skipButton().click();
 
         cy.url().should('eq', 'https://rc.viewiq.com/home');
     }
