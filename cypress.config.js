@@ -4,7 +4,6 @@ require('dotenv').config();
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
     },
     chromeWebSecurity: false,
     testIsolation:false,
@@ -18,4 +17,6 @@ module.exports = defineConfig({
     VIEWIQ_PASSWORD: process.env.VIEWIQ_PASSWORD,
   },
   defaultCommandTimeout: 10000,
+  viewportWidth: 1680,
+  viewportHeight: 1050,
 });

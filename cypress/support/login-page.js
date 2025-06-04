@@ -21,11 +21,9 @@ class LoginPage {
 
         this.locators.nextButton().click();
 
-
         this.locators.validationCodeContainer().should('be.visible').then(() => {
             cy.wait(5000).then(() => {
                 cy.getVerificatioCode(Cypress.env('MAILOSAUR_SERVER_ID'), Cypress.env('MAILOSAUR_API_KEY')).then((verificationCode) => {
-                    console.log('verificationCodeReceived = ', verificationCode);
                         verificationCode.forEach((letter, index) => {
                         cy.get(`#c-${index + 1}`) 
                         .type(letter)
